@@ -20,24 +20,26 @@ const Header = ({ course }) => {
   return <h1>{course}</h1>;
 };
 
-const Content = (props) => {
+const Content = (content) => {
   return (
     <div>
-      <p>
-        {props.part1} {props.exercises1}
-      </p>
-      <p>
-        {props.part2} {props.exercises2}
-      </p>
-      <p>
-        {props.part3} {props.exercises3}
-      </p>
+      <Part title={content.part1} ex={content.exercises1} />
+      <Part title={content.part2} ex={content.exercises2} />
+      <Part title={content.part3} ex={content.exercises3} />
     </div>
   );
 };
 
+const Part = (part) => {
+  return (
+    <div>
+      <p>{part.title} ({part.ex} exercises)</p>
+    </div>
+  )
+}
+
 const Total = (props) => {
-  return <p>Number of exercises {props.exercises1 + props.exercises2 + props.exercises3}</p>;
+  return <p>Total exercises: {props.exercises1 + props.exercises2 + props.exercises3}</p>;
 };
 
 export default App;
